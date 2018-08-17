@@ -51,8 +51,8 @@ class Deepnet(object):
     ## FEATURE EXTRACTION
     with tf.variable_scope('embed') as scope:
       #feats = self.resnet(self.images)
-      feats = self.vggnet(self.images)
-      #feats = self.simple_network(self.images)
+      #feats = self.vggnet(self.images)
+      feats = self.simple_network(self.images)
       #feats = self.DIY_network(self.images)
 
     ## LOGITS
@@ -131,30 +131,34 @@ class Deepnet(object):
   ####### FILL IN THE BLANK ######
   ################################
   def simple_network(self, images):
-    """ Your Code """
+    x = self._conv('conv1', images, 3, 1, 16, self._stride_arr(1))
+    x_left = self._relu(x, 0)
 
+    # x_left
+    x_left = self._conv('conv2_left', x, 3, 16, 16, self._stride_arr(1))
+    x_left = self._relu(x_left, 0)    
+    x_left = tf.nn.avg_pool(x_left, self._stride_arr(2), self._stride_arr(2), 'VALID')
+    # 위의 경우에 'VALID' 대신에 'SAME'도 상관없음
+    
+    # x_right
+    x_right = self._conv('conv2_right', x, 3, 16, 16, self._stride_arr(2))
+    x_right = self._relu(x_right, 0)
 
+    # Eltwise sum
+    x1 = x_left + x_right
 
+    x2 = self._conv('conv3_left', x1, 3, 16, 16, self._stride_arr(1))
+    x2 = self._relu(x2, self.relu_leakiness)
 
+    # Concatenate
+    x = tf.concat(values=[x1, x2], axis=3)
+    # tf.concat([x1, x2], 3)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    x = self._conv('conv4', x, 3, 32, 32, self._stride_arr(1))
+    x = self._relu(x, self.relu_leakiness)
 
     img_feat = self._global_avg_pool(x)
     return img_feat
-
 
   ## VGGNET
   ## Very Deep Convolutional Networks for Large-Scale Image Recognition
