@@ -17,7 +17,7 @@
         - 학습과 동시에 vis 폴더에 학습결과가 이미징된다.
           점점 선명해진다.
 
-    - 보고서 제출 >> Yekang Lee : askhow@kaist.ac.kr      
+    - 보고서 제출 >> Yekang Lee : askhow@kaist.ac.kr
     - 설문조사 : https://goo.gl/YTNcQk
 
 - Gen 참고서적 : www.deeplearningbook.org
@@ -48,7 +48,8 @@
             OUTPUT_SIZE   = 9
             HIDDEN_SIZE   = 200
             LEARNING_RATE = 0.01
-            nEpoch 	      = 500  
+            nEpoch 	      = 500
+    - 보고서 제출 >> junyeong.kim@kaist.ac.kr
 
 
 
