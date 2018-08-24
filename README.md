@@ -22,4 +22,14 @@
 
 - Gen 참고서적 : www.deeplearningbook.org
 
+# ch03
+- 2018-08-24
+- 유창동 교수님
+- [Recurrent Neural Network / Long Short-Term Memory]
+
+    - 실습1
+        - 실습자료 다운 : https://drive.google.com/file/d/17Nxx9NaDu_IxOpiJyfQqPumZlouSoOqS/view
+        
+
+
 
