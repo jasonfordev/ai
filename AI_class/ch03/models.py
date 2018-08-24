@@ -57,12 +57,8 @@ class BasicRNNCell(RNNCell):
 
   def call(self, inputs, state):
     ### your code here ###
-
-
-
-
-
-
+    print('### BasicRNNCell call')
+    output = self._activation(_linear([inputs, state], self._num_units, True))
     #####################
     return output, output
 
@@ -94,10 +90,15 @@ class GRUCell(RNNCell):
     """Gated recurrent unit (GRU) with nunits cells."""
     ### your code here ###
 
+    with tf.variable_scope('r') :
+      r = tf.sigmoid(_linear([inputs, state], self._num_units, True))
 
-
-
-
+    with tf.variable_scope('z') :
+      z = tf.sigmoid(_linear([inputs, state], self._num_units, True))
+    
+    c = self._activation(_linear([inputs, r*state], self._num_units, True))
+    
+    new_h = (1 - z) * state + z * c
 
     #####################
     
@@ -179,12 +180,20 @@ class BasicLSTMCell(RNNCell):
 
     ### your code here ###
     
+    with tf.variable_scope('i') :
+      i = tf.sigmoid(_linear([inputs, h], self._num_units, True))
 
+    with tf.variable_scope('f') :
+      f = tf.sigmoid(_linear([inputs, h], self._num_units, True))
+    
+    with tf.variable_scope('o') :
+      o = tf.sigmoid(_linear([inputs, h], self._num_units, True))
 
-
-
-
-
+    with tf.variable_scope('g') :
+      g = self._activation(_linear([inputs, h], self._num_units, True))
+    
+    new_c = f * c + i * g
+    new_h = o * self._activation(new_c)
 
     ######################
     new_state = LSTMStateTuple(new_c, new_h)

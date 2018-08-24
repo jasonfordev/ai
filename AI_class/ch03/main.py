@@ -17,9 +17,9 @@ data_test_Y  = data[451:,:]
 ### Hyperparameters ### 
 INPUT_SIZE    = 9
 OUTPUT_SIZE   = 9
-HIDDEN_SIZE   = 100
+HIDDEN_SIZE   = 100  ## RNN에서 나오는 벡터의 크기
 LEARNING_RATE = 0.005
-nEpoch 	      = 500
+nEpoch 	      = 500  ## 반복 수
 
 ### Grapch ### 
 # placehoders for inputs and outputs
@@ -29,12 +29,12 @@ inputs_  = tf.expand_dims(inputs,0)
 outputs_ = tf.expand_dims(outputs,0)
 
 # RNN/LSTM layer
-cell = tf.nn.rnn_cell.BasicRNNCell(HIDDEN_SIZE)
+#cell = tf.nn.rnn_cell.BasicRNNCell(HIDDEN_SIZE)
 #cell = tf.nn.rnn_cell.BasicLSTMCell(HIDDEN_SIZE)
 #cell = tf.nn.rnn_cell.GRUCell(HIDDEN_SIZE)
 #cell = models.BasicRNNCell(HIDDEN_SIZE)
 #cell = models.BasicLSTMCell(HIDDEN_SIZE)
-#cell = models.GRUCell(HIDDEN_SIZE)
+cell = models.GRUCell(HIDDEN_SIZE)
 rnn_outputs, rnn_states = tf.nn.dynamic_rnn(cell, inputs_, dtype=tf.float32)
 
 # Output layer 
@@ -74,6 +74,8 @@ for i in range(nEpoch):
   test_mse, summary = sess.run([mse, merge_op], {inputs: data_test_X, outputs: data_test_Y})
   val_writer.add_summary(summary, i)
   print("Epoch: %d Train MSE: %.5f Test MSE: %.5f " % (i+1, train_mse, test_mse))
+
+print("####### FINISH ######")
 
 pred_train = sess.run(pred, {inputs:data_train_X, outputs:data_train_Y})
 pred_test = sess.run(pred, {inputs:data_test_X, outputs:data_test_Y})

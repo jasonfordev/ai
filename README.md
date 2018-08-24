@@ -29,7 +29,26 @@
 
     - 실습1
         - 실습자료 다운 : https://drive.google.com/file/d/17Nxx9NaDu_IxOpiJyfQqPumZlouSoOqS/view
-        
+        - 테스트 1
+            INPUT_SIZE    = 9
+            OUTPUT_SIZE   = 9
+            HIDDEN_SIZE   = 100
+            LEARNING_RATE = 0.005
+            nEpoch 	      = 500
+
+        - 테스트 2
+            INPUT_SIZE    = 9
+            OUTPUT_SIZE   = 9
+            HIDDEN_SIZE   = 100
+            LEARNING_RATE = 0.01
+            nEpoch 	      = 500
+
+        - 테스트 3
+            INPUT_SIZE    = 9
+            OUTPUT_SIZE   = 9
+            HIDDEN_SIZE   = 200
+            LEARNING_RATE = 0.01
+            nEpoch 	      = 500  
 
 
 
