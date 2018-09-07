@@ -52,4 +52,35 @@
     - 보고서 제출 >> junyeong.kim@kaist.ac.kr
 
 
+# ch04
+- 2018-09-07
+- 박현욱 교수님
+- [Medical Imaging Systems]
 
+    - Google's principles for developing AI
+    - Be socially beneficial
+    - Avoid creating or reinforcing unfair bias
+    - Be built and tested for safety
+    - Be accountable to people (interpretability)
+    - Incorporate privacy design principles
+    - Uphold high standards of scientific excellence
+    - Be made available for uses that accord with these principles
+
+    - positron ?
+
+    - 실습
+        - 실습자료 : http://35.229.152.185:5000/
+        1. FCN(Fully Convolutional Network)
+        - 간단하나 정밀도가 떨어짐
+        
+        2. U-Net
+        - 레이어가 많고 정밀함
+
+    - Keras Library
+        - 모듈화
+        - 최소주의
+        - 쉬운 확장성
+        - 파이썬 기반
+
+
+            
