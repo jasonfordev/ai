@@ -86,7 +86,33 @@
 - 2018-09-14
 - 김기응 교수님
 - [Reinforcement Learning]
-
-
+    - Machine Learning
+        1. Supervised Learning
+            - Object Detection
+            - Object Localication
+        2. Unsupervised Learning
+            - GAN
+                - nvidia celeba : 유명인들 이미지를 보고 가상인물 이미지 생성
+        3. Reinforcement Learning
+    - 실습 1
+        - 실습자료 : https://github.com/KAIST-AILab/deeprl_practice
+        - https://jupyter.nims.re.kr 접속
+        - new > terminal > git clone https://github.com/KAIST-AILab/deeprl_practice
+        - $ cd deeprl_practice
+        - $ conda env create -f environment.yml : 실습에 필요한 모듈 설치(꽤 오래걸림)
+        - $ source activate deeprl : 가상환경 활성화
+        - $ python setup.py install : gym-maze 설치
+        - $ cd baselines : baselines 설치
+          $ pip install -e .
+          $ cd ..
+        - $ python -m ipykernel install --user --name deeprl --display-name deeprl : Jupyter notebook에 가상환경 커널 추가
+        - https://jupyter.nims.re.kr > deeprl_practice폴더 > 1_Q-learning_maze.ipynb 실행
+        - 메뉴에서 Kernel > Change kernel > deeprl 선택
+        - 교재에 나온 Problem1,2,3 코딩 후 'learn_q_val()' 코드 실행하면 maze가 시각화되어서 출력됨
+    - 실습 2
+        - OpenAI : deeprl_practice/baselines/baselines
+          >> 여기서 RL알고리즘을 골라서 사용하면 됨
+        - 
+    - 보고서 제출 : hvlee@ai.kaist.ac.kr        
 
             
