@@ -115,4 +115,30 @@
         - 
     - 보고서 제출 : hvlee@ai.kaist.ac.kr        
 
+# ch07
+- 2018-09-28
+- 김회린 교수님
+- [음성인식]
+    - 실습
+        - 실습메뉴얼 : goo.gl/ZpeDU7
+        - 실습파일 : kaist_kaldi_tutorial.ova (via goo.gl/g8xSDP or goo.gl/vVqiPe)
+        - VitrtualBox(Ubuntu) + Kaldi
+        - KALDI 
+            - 대표적인 음성인식/화자인식용 오픈소스 툴킷
+            - 대부분 Shell script, C++ (일부 python)    
+            - 음성인식에 필요한 전처리/후처리에 필요한 여러 Lib를 갖추고 있음
+            - 다양한 음성 데이터에 맞는 recipe/tutorial이 존재
+            - http://kaldi-asr.org
+            - https://github.com/kaldi-asr/kaldi
+        - 그 외
+            - CMU Sphinx : 2000년대 사용사던 오픈소스 툴킷 (C/Java/Python)            
+            - HTK : 과거 주로 쓰였던 HMM 기반 음성인식 툴킷으로 라이센스 필요
+        - Database
+            - FSDD (Free Spoken Digit Dataset)
+                - 음성인식을 위한 MNIST : Digit recognition task (0~9)
+                - 사용할 샘플 : https://github.com/Jakobovski/free-spoken-digit-dataset
+        - Ubuntu Login PW : 123450
+            - $ cd kaldi/egs/fsdd
+            - $ ./run.sh    
+            
             
